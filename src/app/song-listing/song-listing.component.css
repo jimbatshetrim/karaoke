@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     font-size: 5rem;
 }
 
@@ -17,12 +17,12 @@ hr {
 .container {
     padding: 15px 0;
     display: flex;
-    justify-content: space-evenly;
     font-size: 3rem;
 }
 
 .container span {
-    align-content: center;
+    flex: 1;
+    margin: 0 30px;
 }
 
 .container:hover {
