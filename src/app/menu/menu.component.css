@@ -1,0 +1,26 @@
+.parent {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    padding: 0 2em 0;
+}
+
+.title {
+    min-height: 80px;
+    max-height: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.title input {
+    align-self: center;
+    height: auto;
+    min-height: 30px;
+}
+
+.body {
+    flex: 1;
+    background-color: #F1E78D;
+    border-radius: 15px 15px 0 0;
+}
