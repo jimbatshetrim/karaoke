@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 5rem;
+}
+
+.header span {
+    padding-top: 10px;
+    opacity: 50%;
+}
+
+hr {
+    margin: 0 30px 0;
+    color: black;
+}
+
+.container {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 3rem;
+}
+
+.container span {
+    align-content: center;
+}
+
+.container:hover {
+    background-color: beige;
+}
