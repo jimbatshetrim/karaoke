@@ -9,9 +9,7 @@ import {AudioService} from '../services/audio.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  songSelected$: Observable<Song> = this.audioService.getCurrentSong().pipe(
-      tap(val => console.log(val))
-  );
+  songSelected$: Observable<Song> = this.audioService.getCurrentSong();
 
   constructor(private audioService: AudioService) {
   }

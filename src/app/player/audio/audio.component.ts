@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Song} from '../../misc/karaoke.constant';
 
 @Component({
@@ -11,10 +11,11 @@ export class AudioComponent implements OnInit, AfterViewInit {
 
 	// @Input() selectedSong!: Song;
 	@Input() set selectedSong(song: Song) {
-		if (song.path !== '') {
-			this.initAudio(song);
-			this.audio.play();
+		if (this.audio) {
+			this.audio.srcObject = null;
 		}
+		this.initAudio(song);
+		this.audio.play();
 	}
 
 	private audio!: HTMLAudioElement;
