@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {Song} from '../misc/karaoke.constant';
+import {AudioService} from '../services/audio.service';
 
 @Component({
 	selector: 'app-song-listing',
@@ -7,7 +8,6 @@ import {Song} from '../misc/karaoke.constant';
 	styleUrls: ['./song-listing.component.css']
 })
 export class SongListingComponent {
-	@Output() songSelected: EventEmitter<Song> = new EventEmitter<Song>();
 
 	songList: Song[] = [
 		{title: 'Doja', artist: 'Central Cee', path: '/assets/songs/doja.mp3'},
@@ -25,5 +25,12 @@ export class SongListingComponent {
 		{title: 'Hello', artist: 'Adele', path: '/assets/songs/never-gonna-give-you-up.mp3'},
 		{title: 'Vossi Bop', artist: 'Stormzy', path: '/assets/songs/never-gonna-give-you-up.mp3'},
 	];
+
+	constructor(private audioService: AudioService) {
+	}
+
+	selectSong(song: Song): void {
+		this.audioService.setCurrentSong(song);
+	}
 
 }

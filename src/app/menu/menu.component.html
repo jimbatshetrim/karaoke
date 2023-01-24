@@ -2,8 +2,8 @@
 	<div class="title">
 		<input>
 	</div>
-	<app-audio [selectedSong]="songSelected"></app-audio>
+	<app-audio [selectedSong]="songSelected" *ngIf="songSelected$ | async as songSelected"/>
 	<div class="body">
-		<app-song-listing (songSelected)="songSelected = $event"></app-song-listing>
+		<app-song-listing></app-song-listing>
 	</div>
 </div>

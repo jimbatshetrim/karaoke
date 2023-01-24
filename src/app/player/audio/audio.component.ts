@@ -9,24 +9,26 @@ import {Song} from '../../misc/karaoke.constant';
 export class AudioComponent implements OnInit, AfterViewInit {
 	audioPlaying = false;
 
-	@Input() selectedSong!: Song;
-	private audio!: HTMLAudioElement;
-
-	ngOnInit(): void {
-		if (this.selectedSong) {
-			this.audio = this.initAudio();
+	// @Input() selectedSong!: Song;
+	@Input() set selectedSong(song: Song) {
+		if (song.path !== '') {
+			this.initAudio(song);
+			this.audio.play();
 		}
 	}
 
-	ngAfterViewInit(): void {
-		// this.audio.play();
+	private audio!: HTMLAudioElement;
+
+	ngOnInit(): void {
 	}
 
-	initAudio(): HTMLAudioElement {
-		const audio = new Audio(this.selectedSong.path);
-		audio.autoplay = false;
-		audio.preload = 'auto';
-		return audio;
+	ngAfterViewInit(): void {
+	}
+
+	initAudio(song: Song): void {
+		this.audio = new Audio(song.path);
+		this.audio.autoplay = false;
+		this.audio.preload = 'auto';
 	}
 
 	play(): void {

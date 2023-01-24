@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Song} from '../misc/karaoke.constant';
+import {Observable, tap} from 'rxjs';
+import {AudioService} from '../services/audio.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,5 +9,11 @@ import {Song} from '../misc/karaoke.constant';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  songSelected!: Song;
+  songSelected$: Observable<Song> = this.audioService.getCurrentSong().pipe(
+      tap(val => console.log(val))
+  );
+
+  constructor(private audioService: AudioService) {
+  }
+
 }
