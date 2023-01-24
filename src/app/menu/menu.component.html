@@ -2,7 +2,8 @@
 	<div class="title">
 		<input>
 	</div>
+	<app-audio [selectedSong]="songSelected"></app-audio>
 	<div class="body">
-		<app-song-listing></app-song-listing>
+		<app-song-listing (songSelected)="songSelected = $event"></app-song-listing>
 	</div>
 </div>
